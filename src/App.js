@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Folder from "./components/Folder";
+import explorer from "./data/foldeData";
 
 function App() {
+  const [explorerData, setExplorerData] = useState(explorer);
+  console.log(explorerData);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="m-5">
+      <h1 className="mb-5 text-2xl font-bold">File Explorer</h1>
+      <Folder explorer={explorerData} />
     </div>
   );
 }
