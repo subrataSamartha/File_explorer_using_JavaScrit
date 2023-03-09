@@ -16,6 +16,12 @@ function Folder({ explorer }) {
     });
   };
 
+  const onAddFolder = (e) => {
+    if (e.keyCode === 13 && e.target.value) {
+      setShowInput({ ...showInput, visible: false });
+    }
+  };
+
   if (explorer.isFolder) {
     return (
       <div className="-5">
@@ -44,6 +50,7 @@ function Folder({ explorer }) {
               <span>{showInput.isFolder ? "📁" : "📄"}</span>
               <input
                 type="text"
+                onKeyDown={onAddFolder}
                 onBlur={() => setShowInput({ ...showInput, visible: false })}
                 className=" border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2"
                 autoFocus
